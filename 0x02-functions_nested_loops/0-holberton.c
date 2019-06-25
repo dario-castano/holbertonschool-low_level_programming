@@ -9,9 +9,8 @@ int main(void)
 {
 	int i;
 	char p[] = "Holberton";
-	int phrsize = sizeof(p) / sizeof(char);
 
-	for (i = 0; i < phrsize; i++)
+	for (i = 0; i < 9; i++)
 	{
 		_putchar(p[i]);
 	}
