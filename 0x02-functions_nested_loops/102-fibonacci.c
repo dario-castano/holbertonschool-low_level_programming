@@ -6,7 +6,7 @@
  *
  * Return: The result of fibonacci series.
  */
-unsigned long long int fibonacci(int n)
+unsigned long int fibonacci(int n)
 {
 	if (n == 0 || n == 1)
 		return (1);
@@ -24,15 +24,16 @@ int main(void)
 	int i;
 	int max = 50;
 
-	for (i = 0; i < max; i++)
+	for (i = 0; i <= max; i++)
 	{
 		if (i == 0)
 			continue;
-		else if (i == (max - 1))
-			printf("%llu", fibonacci(i));
+		else if (i == max)
+			printf("%lu", fibonacci(i));
 		else
-			printf("%llu, ", fibonacci(i));
+			printf("%lu, ", fibonacci(i));
 	}
 
 	putchar('\n');
+	return (0);
 }
