@@ -22,7 +22,7 @@ unsigned long int largest_prime_factor(unsigned long int a)
 			b++;
 	}
 	return (b);
-} 
+}
 
 /**
  * main - check the code for Holberton School students.
