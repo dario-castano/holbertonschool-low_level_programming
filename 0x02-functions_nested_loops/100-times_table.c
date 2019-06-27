@@ -33,6 +33,8 @@ void print_times_table(int n)
 					else
 						pr_3_digit(res, 4);
 				}
+				else if (n == 0)
+					_putchar('0');					
 				else
 				{
 					if (j == n)
