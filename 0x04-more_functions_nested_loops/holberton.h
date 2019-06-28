@@ -15,5 +15,6 @@ void print_square(int size);
 void write_pnd_line(int n);
 void print_triangle(int size);
 void put_linechars(int n);
+void print_number(int n);
 
 #endif /* HOLBERTON_H_ */
