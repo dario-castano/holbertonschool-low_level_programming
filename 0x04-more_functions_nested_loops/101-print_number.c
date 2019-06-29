@@ -9,7 +9,7 @@
 int abs(int n)
 {
 	if (n < 0)
-		return ((-1) * n);
+		return (-1 * n);
 	else
 		return (n);
 }
@@ -57,28 +57,31 @@ int count_digits(int n)
  */
 void print_number(int n)
 {
-	int i;
-	int digits;
-	int res = n;
+	int i, res, digits;
+	unsigned int num;
 
 	if (n == 0)
 		_putchar(48);
 	if (n < 0)
 	{
-		res = abs(res);
+		res = abs(n);
 		digits = count_digits(res);
 		_putchar('-');
 		for (i = digits; i > 0; i--)
 		{
-			_putchar(((res % power(10, i)) / power(10, i - 1)) + '0');
+			num = abs(res / power(10, (i - 1)));
+			_putchar(num + '0');
+			res %= power(10, (i - 1));
 		}
 	}
 	else
 	{
+		res = n;
 		digits = count_digits(res);
 		for (i = digits; i > 0; i--)
 		{
-			_putchar(((res % power(10, i)) / power(10, i - 1)) + '0');
+			_putchar((res / power(10, (i - 1))) + '0');
+			res %= power(10, (i - 1));
 		}
 	}
 }
