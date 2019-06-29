@@ -1,17 +1,44 @@
 #include <stdio.h>
+unsigned long int fib_tail(
+unsigned long int n,
+unsigned long int left,
+unsigned long int right);
+
+unsigned long int fibonacci(unsigned long int n);
 
 /**
- * fibonacci - check the code for Holberton School students.
+ * fibonacci - calculates fibonacci series.
  * @n: An integer
  *
  * Return: The result of fibonacci series.
  */
-unsigned long int fibonacci(int n)
+unsigned long int fibonacci(unsigned long int n)
 {
-	if (n == 0 || n == 1)
-		return (1);
-	else
-		return (fibonacci(n - 1) + fibonacci(n - 2));
+	return (fib_tail(n, 0, 1));
+}
+
+/**
+ * fib_tail - tail recursive part of fibonacci.
+ * @n: An integer
+ * @left: An integer
+ * @right: An integer
+ *
+ * Return: The result of fibonacci series.
+ */
+unsigned long int fib_tail(
+unsigned long int n,
+unsigned long int left,
+unsigned long int right)
+{
+	switch (n)
+	{
+		case 0:
+			return (0);
+		case 1:
+			return (right);
+		default:
+			return (fib_tail(n - 1, right, left + right));
+	}
 }
 
 /**
@@ -22,13 +49,11 @@ unsigned long int fibonacci(int n)
 int main(void)
 {
 	int i;
-	int max = 50;
+	int max = 51;
 
-	for (i = 0; i <= max; i++)
+	for (i = 2; i <= max; i++)
 	{
-		if (i == 0)
-			continue;
-		else if (i == max)
+		if (i == max)
 			printf("%lu", fibonacci(i));
 		else
 			printf("%lu, ", fibonacci(i));
