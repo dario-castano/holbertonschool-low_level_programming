@@ -53,9 +53,9 @@ int main(void)
 	int ans = 0;
 	int max = 4000000;
 
-	while (acc < max)
+	while (acc <= max)
 	{
-		if (fibonacci(i) % 2 == 0)
+		if (i % 2 == 0)
 		{
 			ans += fibonacci(i);
 			acc = fibonacci(i);
