@@ -9,6 +9,15 @@ int main(void)
 {
     char *str;
 
+    str = "0123456789ABC";
+    puts_half(str);
+
+    str = "0123456789AB";
+    puts_half(str);
+
+    str = "0123456789A";
+    puts_half(str);
+
     str = "0123456789";
     puts_half(str);
     return (0);
