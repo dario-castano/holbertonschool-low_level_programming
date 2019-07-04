@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * string_toupper - Converts a char arr to uppercase 
+ * string_toupper - Converts a char arr to uppercase
  * @c: Array
  * Return: Array of chars
  */
