@@ -1,26 +1,6 @@
 #include "holberton.h"
 
 /**
- * get_termination_pos - Get the array position when the
- * termination char is located
- *
- * @arr: A char array
- *
- * Return: The position of '\0'
- */
-int get_termination_pos(char *arr)
-{
-	int i = 0;
-
-	while (arr[i] != '\0')
-	{
-		i++;
-	}
-
-	return (i);
-}
-
-/**
  * reverse_array - Reverse a given array
  *
  * @a: Source array
@@ -39,7 +19,7 @@ void reverse_array(int *a, int n)
 		buf[j] = a[i];
 		j++;
 	}
-	for (i = 0; i < n; i++)
+	for (i = 0; i < n - 1 ; i++)
 	{
 		a[i] = buf[i];
 	}
