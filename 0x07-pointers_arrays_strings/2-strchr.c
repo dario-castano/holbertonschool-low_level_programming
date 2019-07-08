@@ -6,7 +6,7 @@
  * @c: Char to find
  *
  * Return: Pointer to the first ocurrence,
- * otherwiise NULL
+ * otherwise NULL
  */
 char *_strchr(char *s, char c)
 {
@@ -19,6 +19,11 @@ char *_strchr(char *s, char c)
 			return (s + i);
 		}
 	i++;
+	}
+
+	if (s[i] == '\0')
+	{
+		return (s + i);
 	}
 
 	return (0);
