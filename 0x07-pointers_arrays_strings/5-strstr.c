@@ -87,6 +87,7 @@ char *_strstr(char *haystack, char *needle)
 	while (i <= haystack_len - needle_len)
 	{
 		_strncpy(buffer, haystack + i, needle_len);
+		buffer[needle_len] = 0;
 
 		if (_strcmp(buffer, needle) == 0)
 		{
