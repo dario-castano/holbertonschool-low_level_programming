@@ -96,5 +96,5 @@ char *_strstr(char *haystack, char *needle)
 	i++;
 	}
 
-	return (haystack + (needle_len - 1));
+	return (0);
 }
