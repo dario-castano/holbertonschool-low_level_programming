@@ -16,18 +16,17 @@ int _strlen_recursion(char *s)
 /**
  * check_palindrome - recursive palindrome
  * @str: a string
- * @left: left character
- * @right: right character
+ * @len: length
  * Return: int
  */
-int check_palindrome(char *str, int left, int right)
+int check_palindrome(char *str, int len)
 {
-	if (str[left] != str[right])
-		return (0);
-	else if (right >= left)
+	if (len <= 1)
 		return (1);
+	else if (*str != str[len - 1])
+		return (0);
 	else
-		return (check_palindrome(str, left + 1, right - 1));
+		return (check_palindrome(str + 1, len - 2));
 
 }
 
@@ -38,13 +37,10 @@ int check_palindrome(char *str, int left, int right)
  */
 int is_palindrome(char *s)
 {
-	int left = 0;
-	int right = _strlen_recursion(s) - 1;
+	int len = _strlen_recursion(s);
 
-	if (right == 0)
-		return (1);
-	else if (right == 1)
+	if (len <= 1)
 		return (1);
 	else
-		return (check_palindrome(s, left, right));
+		return (check_palindrome(s, len));
 }
