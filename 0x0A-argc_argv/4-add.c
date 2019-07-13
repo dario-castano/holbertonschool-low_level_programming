@@ -18,20 +18,6 @@ int isa_positive_number(char *str)
 	return (1);
 }
 
-/**
-* isa_negative_number - check if a string is a negative number
-* @str: array of chars
-* Return: 1 if number, 0 if not
-*/
-int isa_negative_number(char *str)
-{
-	if ((*str == 45) && (*(str + 1) == '\0'))
-		return (0);
-	else if (*str == 45 && isa_positive_number(str + 1))
-		return (1);
-	else
-		return (0);
-}
 
 /**
 * has_only_numbers - shows if an array contain only numbers
@@ -43,7 +29,7 @@ int has_only_numbers(char **arr)
 {
 	if (*arr != 0)
 	{
-		if (!isa_positive_number(*arr) && !isa_negative_number(*arr))
+		if (!isa_positive_number(*arr))
 			return (0);
 		else
 			return (has_only_numbers(arr + 1));
