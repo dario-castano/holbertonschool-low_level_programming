@@ -25,7 +25,9 @@ int isa_positive_number(char *str)
 */
 int isa_negative_number(char *str)
 {
-	if (*str == 45 && isa_positive_number(str + 1))
+	if ((*str == 45) && (*(str + 1) == '\0'))
+		return (0);
+	else if (*str == 45 && isa_positive_number(str + 1))
 		return (1);
 	else
 		return (0);
