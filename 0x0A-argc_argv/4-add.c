@@ -48,24 +48,26 @@ int main(int argc, char **argv)
 	int acc = 0;
 
 	if (argc == 1)
+	{
 		puts("0");
+		return (1);
+	}
 	else
 	{
-		if (has_only_numbers(argv + 1) != 0)
+		if (has_only_numbers(argv + 1))
 		{
 			while (argv[i] != 0)
 			{
 				acc += atoi(argv[i]);
 				i++;
 			}
+			printf("%d\n", acc);
+			return (0);
 		}
 		else
 		{
 			puts("Error");
 			return (1);
 		}
-		printf("%d\n", acc);
 	}
-
-	return (0);
 }
