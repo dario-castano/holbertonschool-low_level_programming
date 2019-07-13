@@ -2,20 +2,33 @@
 #include <stdlib.h>
 
 /**
-* isa_number - check if a string is a number
+* isa_positive_number - check if a string is a positve number
 * @str: array of chars
 * Return: 1 if number, 0 if not
 */
-int isa_number(char *str)
+int isa_positive_number(char *str)
 {
 	if (*str)
 	{
 		if (*str < 48 || *str > 57)
 			return (0);
 		else
-			return (isa_number(str + 1));
+			return (isa_positive_number(str + 1));
 	}
 	return (1);
+}
+
+/**
+* isa_negative_number - check if a string is a negative number
+* @str: array of chars
+* Return: 1 if number, 0 if not
+*/
+int isa_negative_number(char *str)
+{
+	if (*str == 45 && isa_positive_number(str + 1))
+		return (1);
+	else
+		return (0);
 }
 
 /**
@@ -28,7 +41,7 @@ int has_only_numbers(char **arr)
 {
 	if (*arr != 0)
 	{
-		if (!isa_number(*arr))
+		if (!isa_positive_number(*arr) && !isa_negative_number(*arr))
 			return (0);
 		else
 			return (has_only_numbers(arr + 1));
