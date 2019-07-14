@@ -1,83 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
+#include <ctype.h>
 
 /**
-* isa_positive_number - check if a string is a positve number
-* @str: array of chars
-* Return: 1 if number, 0 if not
-*/
-int isa_positive_number(char *str)
-{
-	if (*str)
-	{
-		if (*str < 48 || *str > 57)
-			return (0);
-		else
-			return (isa_positive_number(str + 1));
-	}
-	return (1);
-}
-
-/**
-* has_only_numbers - shows if an array contain only numbers
-* @arr: An array of chars
-* Return: 1 if has only numbers,
-* otherwise 0
-*/
-int has_only_numbers(char **arr)
-{
-	if (*arr != 0)
-	{
-		if (!isa_positive_number(*arr))
-			return (0);
-		else
-			return (has_only_numbers(arr + 1));
-	}
-	return (1);
-}
-
-/**
-* main - entry point
-* @argc: param count
-* @argv: array of args
-* Return: 1 if Error, otherwise 0
+* main - Entry point
+* @argc: argcount
+* @argv: argvector
+* Return: acc
 */
 int main(int argc, char **argv)
 {
 	int i = 1;
-	int acc = 0;
-	int check = 0;
+	int j = 0;
+	unsigned int acc = 0;
 
-	if (argc < 2)
+	if (argc < 1)
 	{
-		puts("0");
-		return (0);
+		printf("%d\n", 0);
 	}
-	else
+	while (i < argc)
 	{
-		if (has_only_numbers(argv + 1))
+		while (argv[i][j] != '\0')
 		{
-			while (argv[i] != 0)
+			if (!(isdigit(argv[i][j])))
 			{
-				acc += atoi(argv[i]);
-
-				if (acc < check)
-				{
-					puts("Error");
-					return (1);
-				}
-
-				check += atoi(argv[i]);
-				i++;
+				printf("Error\n");
+				return (1);
 			}
-			printf("%d\n", acc);
-			return (acc);
+			j++;
 		}
-		else
-		{
-			puts("Error");
-			return (1);
-		}
+		acc += (unsigned int)atoi(argv[i]);
+		i++;
 	}
+	printf("%u\n", acc);
+	return (acc);
 }
