@@ -62,7 +62,7 @@ int main(int argc, char **argv)
 				i++;
 			}
 			printf("%u\n", acc);
-			return (0);
+			return (acc);
 		}
 		else
 		{
