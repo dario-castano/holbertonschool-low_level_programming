@@ -11,7 +11,8 @@ int main(int argc, char *argv[])
 {
 	int i;
 	int j;
-	int acc = 0;
+	char *p;
+	unsigned long int acc = 0;
 
 	for (i = 1; i < argc; i++)
 	{
@@ -23,8 +24,8 @@ int main(int argc, char *argv[])
 				return (1);
 			}
 		}
-	acc += atoi(*(argv + i));
+	acc += strtoul(*(argv + i), &p, 10);
 	}
-	printf("%d\n", acc);
-	return (acc);
+	printf("%lu\n", acc);
+	return (0);
 }
