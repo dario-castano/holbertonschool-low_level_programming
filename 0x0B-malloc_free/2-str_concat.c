@@ -60,17 +60,13 @@ char *str_concat(char *s1, char *s2)
 	int s1len, s2len;
 
 	if (s1 == NULL)
-	{
 		s1 = "";
-		s1len = 0;
-	}
 
 	if (s2 == NULL)
-	{
 		s2 = "";
-		s2len = 0;
-	}
 
+	s1len = _strlen(s1);
+	s2len = _strlen(s2);
 	buf = malloc((sizeof(char) * (s1len + s2len)) + 1);
 
 	if (buf == NULL)
@@ -82,5 +78,5 @@ char *str_concat(char *s1, char *s2)
 	_strcat(buf, s1);
 	_strcat(buf, s2);
 
-	return(buf);
+	return (buf);
 }
