@@ -57,19 +57,28 @@ char *_strcat(char *dest, char *src)
 char *str_concat(char *s1, char *s2)
 {
 	char *buf;
+	int s1len, s2len;
 
 	if (s1 == NULL)
+	{
 		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
+		s1len = 0;
+	}
 
-	buf = malloc((sizeof(char) * (_strlen(s1) + _strlen(s2))) + 1);
+	if (s2 == NULL)
+	{
+		s2 = "";
+		s2len = 0;
+	}
+
+	buf = malloc((sizeof(char) * (s1len + s2len)) + 1);
 
 	if (buf == NULL)
+	{
 		return (NULL);
+	}
 
 	buf[0] = '\0';
-
 	_strcat(buf, s1);
 	_strcat(buf, s2);
 
