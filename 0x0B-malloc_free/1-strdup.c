@@ -51,13 +51,17 @@ char *_strdup(char *str)
 {
 	char *out = malloc(sizeof(char) * (_strlen(str) + 1));
 
-	if (str == NULL || out == NULL)
+	if (str == NULL)
 	{
 		return (NULL);
 	}
-	else
+	
+	if (out == NULL)
 	{
-		_strcpy(out, str);
-		return (out);
+		free(out);
+		return (NULL);
 	}
+	
+	_strcpy(out, str);
+	return (out);
 }
