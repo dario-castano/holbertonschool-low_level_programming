@@ -49,7 +49,7 @@ char *_strcpy(char *dest, char *src)
  */
 char *_strdup(char *str)
 {
-	char *out = malloc(sizeof(char) * _strlen(str));
+	char *out = malloc(sizeof(char) * (_strlen(str) + 1));
 
 	if (str == NULL || out == NULL)
 	{
