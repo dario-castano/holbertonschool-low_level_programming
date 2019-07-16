@@ -49,22 +49,15 @@ char *_strcpy(char *dest, char *src)
  */
 char *_strdup(char *str)
 {
-	if (str == 0)
+	char *out = malloc(sizeof(char) * _strlen(str));
+
+	if (str == NULL || out == NULL)
 	{
-		return (0);
+		return (NULL);
 	}
 	else
 	{
-		char *out = malloc(sizeof(char) * _strlen(str));
-
-		if (out != 0)
-		{
-			_strcpy(out, str);
-			return (out);
-		}
-		else
-		{
-			return (0);
-		}
+		_strcpy(out, str);
+		return (out);
 	}
 }
