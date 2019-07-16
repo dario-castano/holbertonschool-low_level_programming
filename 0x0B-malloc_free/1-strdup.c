@@ -17,27 +17,6 @@ int _strlen(char *s)
 	return (acc);
 }
 
-/**
- * _strcpy - like string copy but homemade
- * @dest: pointer to a char (destination)
- * @src: pointer to a char (source)
- * Return: pointer to dest
- */
-char *_strcpy(char *dest, char *src)
-{
-	int i;
-	int srclen = _strlen(src);
-
-	for (i = 0; i <= srclen; i++)
-	{
-		if (i == srclen)
-			dest[i] = '\0';
-		else
-			dest[i] = src[i];
-	}
-
-	return (dest);
-}
 
 /**
  * _strdup - returns a pointer to a newly allocated space in memory,
@@ -49,15 +28,28 @@ char *_strcpy(char *dest, char *src)
  */
 char *_strdup(char *str)
 {
-	char *out = malloc(sizeof(char) * (_strlen(str) + 1));
+	int i;
 
-	if (str == NULL || out == NULL)
+	if (str == NULL)
 	{
 		return (NULL);
 	}
 	else
 	{
-		_strcpy(out, str);
+		int len = _strlen(str);
+		char *out = malloc(sizeof(char) * (len + 1));
+
+		if (out == NULL)
+		{
+			return (NULL);
+		}
+
+		for (i = 0; i < len; i++)
+		{
+			*(out + i) = *(str + i);
+		}
+		*(out + i) = '\0';
+
 		return (out);
 	}
 }
