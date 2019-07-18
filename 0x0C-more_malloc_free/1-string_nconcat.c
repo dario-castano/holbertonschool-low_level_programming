@@ -18,6 +18,25 @@ unsigned int _strlen(char *s)
 }
 
 /**
+ * _memset - fills memory with a constant byte.
+ * @s: Array of chars
+ * @b: char to fill
+ * @n: number of instances
+ * Return: Pointer to array filled with n ocurrences of b
+ */
+char *_memset(char *s, char b, unsigned int n)
+{
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+	{
+		s[i] = b;
+	}
+
+	return (s);
+}
+
+/**
  * _strncat - This function appends the n bytes of the src string
  * to the dest string, overwriting the terminating
  * null byte (\0) at the end of dest, and then adds a
@@ -54,7 +73,7 @@ char *_strncat(char *dest, char *src, unsigned int n)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int s1len, s2len;
+	unsigned int s1len, s2len, buflen;
 	char *buf;
 
 	if (s1 == NULL)
@@ -68,10 +87,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (n > s2len)
 		n = s2len;
 
-	buf = malloc(sizeof(char) * (s1len + n + 1));
+	buf = (char *)malloc(sizeof(char) * (s1len + n + 1));
 
 	if (buf == NULL)
 		return (NULL);
+
+	buflen = sizeof(buf) / sizeof(char);
+	_memset(buf, '\0', buflen);
 
 	_strncat(buf, s1, s1len);
 	_strncat(buf, s2, n);
