@@ -3,6 +3,8 @@
 /**
  * _memset - fills memory with a constant byte.
  * @s: Array of chars
+ * @b: char to fill
+ * @n: number of instances
  * Return: Pointer to array filled with n ocurrences of b
  */
 char *_memset(char *s, char b, unsigned int n)
@@ -20,7 +22,7 @@ char *_memset(char *s, char b, unsigned int n)
 /**
  * _calloc - allocates memory for an array, using malloc.
  * @nmemb: number of spaces
- * @size: size of 
+ * @size: size of
  * Return: NULL if fails to allocate, buf if success
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
