@@ -11,17 +11,10 @@
 int main(int argc, char **argv)
 {
 	int ans;
-	int operand1;
-	int operand2;
-	char *operator;
 
 	if (argc == 4)
 	{
-		operator = argv[2];
-		operand1 = atoi(argv[1]);
-		operand2 = atoi(argv[3]);
-
-		ans = (*get_op_func(operator))(operand1, operand2);
+		ans = (*get_op_func(argv[2]))(atoi(argv[1]), atoi(argv[3]));
 
 		printf("%d\n", ans);
 		return (0);
