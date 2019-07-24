@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 		operand1 = atoi(argv[1]);
 		operand2 = atoi(argv[3]);
 
-		ans = (get_op_func(operator))(operand1, operand2);
+		ans = (*get_op_func(operator))(operand1, operand2);
 
 		printf("%d\n", ans);
 		return (0);
