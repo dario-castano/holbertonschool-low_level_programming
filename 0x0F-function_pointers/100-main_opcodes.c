@@ -30,7 +30,11 @@ int main(int argc, char *argv[])
 	main_arr = (unsigned char *)main;
 
 	for (i = 0; i < bytes; i++)
-		printf("%02x ", main_arr[i]);
+	{
+		printf("%02x", main_arr[i]);
+		if (i < (bytes - 1))
+			putchar(' ');
+	}
 
 	putchar('\n');
 	return (0);
