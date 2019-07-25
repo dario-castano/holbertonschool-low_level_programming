@@ -10,18 +10,32 @@
  */
 int main(int argc, char **argv)
 {
-	int ans;
+	int operand1, operand2;
+	int (*op)(int operand1, int operand2);
 
-	if (argc == 4)
-	{
-		ans = (*get_op_func(argv[2]))(atoi(argv[1]), atoi(argv[3]));
-
-		printf("%d\n", ans);
-		return (0);
-	}
-	else
+	if (argc != 4)
 	{
 		puts("Error");
 		exit(98);
 	}
+
+	if (argv[2][1] != '\0')
+	{
+		printf("Error\n");
+		exit(99);
+	}
+
+	op = get_op_func(argv[2]);
+
+	if (op == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
+
+	operand1 = atoi(argv[1]);
+	operand2 = atoi(argv[3]);
+
+	printf("%d\n", op(operand1, operand2));
+	return (0);
 }
