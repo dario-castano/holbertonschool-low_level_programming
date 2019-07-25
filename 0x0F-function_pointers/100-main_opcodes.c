@@ -7,32 +7,35 @@
   * @argv: argument vector
   * Return: 0
   */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int i; 
-	int count;
+	int bytes;
+	int i;
+	unsigned char *main_arr;
 
 	if (argc != 2)
 	{
 		puts("Error");
-		return (1);
+		exit(1);
 	}
 
-	count = atoi(argv[1]);
+	bytes = atoi(argv[1]);
 
-	if (count < 0)
+	if (bytes < 0)
 	{
 		puts("Error");
-		return (2);
+		exit(2);
 	}
 
-	for (i = 0; i < (count - 1); i++)
+	main_arr = (unsigned char *)main;
+
+	if (bytes > 0)
 	{
-		if (count != 0)
-			printf("%02hhx ", ((char *)main)[i]);
-	}
+		for (i = 0; i < bytes; i++)
+			printf("%x ", main_arr[i]);
 
-	printf("%02hhx\n", ((char *)main)[i]);
+		printf("%x\n", main_arr[i]);
+	}
 
 	return (0);
 }
