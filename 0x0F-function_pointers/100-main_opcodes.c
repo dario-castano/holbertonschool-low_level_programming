@@ -29,13 +29,9 @@ int main(int argc, char *argv[])
 
 	main_arr = (unsigned char *)main;
 
-	if (bytes > 0)
-	{
-		for (i = 0; i < bytes; i++)
-			printf("%x ", main_arr[i]);
+	for (i = 0; i < bytes; i++)
+		printf("%02x ", main_arr[i]);
 
-		printf("%x\n", main_arr[i]);
-	}
-
+	putchar('\n');
 	return (0);
 }
