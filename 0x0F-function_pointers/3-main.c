@@ -22,6 +22,6 @@ int main(int argc, char **argv)
 	else
 	{
 		puts("Error");
-		return (98);
+		exit(98);
 	}
 }
