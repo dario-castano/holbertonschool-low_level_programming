@@ -1,4 +1,6 @@
 #include "lists.h"
+#include <stdio.h>
+
 /**
  * hare_tortoise - function that runs before main
  * Return: void
