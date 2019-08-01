@@ -13,33 +13,11 @@ size_t print_list(const list_t *h)
 	int num_nodes;
 	const list_t *pointer;
 
-	if (h == NULL)
+	while (h != NULL)
 	{
-		printf("[%d] (nil)\n", 0);
-		num_nodes = 0;
-		return (num_nodes);
-	}
-
-	num_nodes = 0;
-	pointer = h;
-
-	while (pointer != NULL)
-	{
+		printf("[%d] %s\n", h->str ? h->len : 0, h->str ? h->str : "(nil)");
+		pointer = pointer->next;
 		num_nodes++;
-
-		if (pointer->str == NULL)
-			printf("[%d] (nil)\n", 0);
-		else
-			printf("[%d] %s\n", pointer->len, pointer->str);
-
-		if (pointer->next == NULL)
-		{
-			return (num_nodes);
-		}
-		else
-		{
-			pointer = pointer->next;
-		}
 	}
 
 	return (num_nodes);
