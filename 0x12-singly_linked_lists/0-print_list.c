@@ -3,26 +3,6 @@
 #include "lists.h"
 
 /**
- * _strlen - get the length of a string
- * @s: pointer to a char
- * Return: number of chars
- */
-int _strlen(char *s)
-{
-	int acc = 0;
-
-	if (s == NULL)
-		return (0);
-
-	while (s[acc] != '\0')
-	{
-		acc++;
-	}
-
-	return (acc);
-}
-
-/**
  * print_list - prints all the elements of a list_t list.
  * @h: Head of a linkedlist
  *
@@ -48,9 +28,9 @@ size_t print_list(const list_t *h)
 		num_nodes++;
 
 		if (pointer->str == NULL)
-			printf("[%d] (nil)\n", _strlen(pointer->str));
+			printf("[%d] (nil)\n", pointer->len);
 		else
-			printf("[%d] %s\n", _strlen(pointer->str), pointer->str);
+			printf("[%d] %s\n", pointer->len, pointer->str);
 
 		if (pointer->next == NULL)
 		{
