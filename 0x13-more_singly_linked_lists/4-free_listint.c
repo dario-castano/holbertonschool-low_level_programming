@@ -1,7 +1,8 @@
 #include "lists.h"
 #include <stdlib.h>
+
 /**
- * free_list - frees linked list of all allocated memory
+ * free_listint - frees linked list of all allocated memory
  * @head: head of the linkedlist
  *
  * Return: void
