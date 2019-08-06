@@ -1,9 +1,17 @@
 #include "lists.h"
 #include <stdlib.h>
 
+/**
+ * delete_nodeint_at_index - deletes the node at index
+ * of a listint_t linked list.
+ * @head: head of likedlist
+ * @index: index to be deleted
+ * Return: 1 success, -1 failure
+ */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	listint_t *next_node, *actual_node, *previous_node;
+	listint_t *pointer = *head;
 	unsigned int count = 0;
 
 	if (!*head || !head)
@@ -35,6 +43,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		{
 			previous_node->next = next_node;
 			free(actual_node);
+			*head = pointer;
 			return (1);
 		}
 		*head = actual_node;
