@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * pop_listint - pop a head from a linkedlist 
+ * pop_listint - pop a head from a linkedlist
  * @head: the head
  * Return: value inside the node
  */
@@ -20,5 +20,5 @@ int pop_listint(listint_t **head)
 		return (value);
 	}
 
-	return (0);	
+	return (0);
 }
