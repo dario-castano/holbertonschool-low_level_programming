@@ -1,24 +1,6 @@
 #include <stdio.h>
 #include "holberton.h"
 
-/*
- * =====================================================================================
- *
- *       Filename:  0-binary_to_uint.c
- *
- *    Description:  
- *
- *        Version:  1.0
- *        Created:  08/08/2019 02:10:11 PM
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  YOUR NAME (), 
- *   Organization:  
- *
- * =====================================================================================
- */
-
 /**
  * _strlen - swap the values of two integers
  * @s: pointer to a char
@@ -64,13 +46,13 @@ char *rev_string(char *s)
  */
 unsigned int isa_binary(char *str)
 {
-        while (*str != '\0')
-        {
-                if (*str != '0' && *str != '1')
-                        return (0);
-                str++;
-        }
-        return (1);
+	while (*str != '\0')
+	{
+	if (*str != '0' && *str != '1')
+		return (0);
+		str++;
+	}
+	return (1);
 }
 
 
@@ -101,6 +83,11 @@ int _pow_recursion(int x, int y)
 	}
 }
 
+/**
+ * binary_to_uint - converts a binary number to an unsigned int
+ * @b: binary string
+ * Return: uint
+ */
 unsigned int binary_to_uint(const char *b)
 {
 	char *reversed;
@@ -125,7 +112,7 @@ unsigned int binary_to_uint(const char *b)
 			i++;
 		}
 
-		return(answer);
+		return (answer);
 	}
 	else
 	{
