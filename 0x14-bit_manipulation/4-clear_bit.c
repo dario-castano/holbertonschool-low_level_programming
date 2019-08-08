@@ -4,7 +4,7 @@
 /**
  * clear_bit - sets the value of a bit to 0 at a given index
  * @n: the binary number
- * @index: bit to change 
+ * @index: bit to change
  * Return: int
  */
 
