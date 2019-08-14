@@ -36,7 +36,6 @@ int create_file(const char *filename, char *text_content)
 {
 	unsigned int text_size;
 	ssize_t fd, w_bytes;
-	char *nullstr = {'\0'};
 
 	if (filename == NULL)
 		return (-1);
@@ -47,12 +46,13 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 
 	if (text_content == NULL)
-		w_bytes = write(fd, nullstr, 0);
-	else
 	{
-		text_size = _strlen(text_content);
-		w_bytes = write(fd, text_content, text_size);
+		close(fd);
+		return (1);
 	}
+
+	text_size = _strlen(text_content);
+	w_bytes = write(fd, text_content, text_size);
 
 	if (w_bytes == IO_ERROR || w_bytes != text_size)
 	{
