@@ -1,20 +1,17 @@
-/*
- ============================================================================
- Name        : 103-keygen.c
- Author      : dario
- Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
- ============================================================================
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * sum_chars_name - sum of the
+ * char values of the name
+ * @name: name to use
+ * Return: the sum of squares
+ */
 int sum_chars_name(char *name)
 {
 	int acc = 0;
+
 	while (*name != '\0')
 	{
 		acc += *name;
@@ -23,9 +20,16 @@ int sum_chars_name(char *name)
 	return (acc);
 }
 
+/**
+ * prod_chars_name - product of the
+ * char values of the name
+ * @name: name to use
+ * Return: the sum of squares
+ */
 int prod_chars_name(char *name)
 {
 	int acc = 1;
+
 	while (*name != '\0')
 	{
 		acc *= *name;
@@ -34,9 +38,16 @@ int prod_chars_name(char *name)
 	return (acc);
 }
 
+/**
+ * sum_sq_chars_name - sum the product of
+ * the squares of the name
+ * @name: name to use
+ * Return: the sum of squares
+ */
 int sum_sq_chars_name(char *name)
 {
 	int acc = 0;
+
 	while (*name != '\0')
 	{
 		acc += (*name * *name);
@@ -45,10 +56,17 @@ int sum_sq_chars_name(char *name)
 	return (acc);
 }
 
+/**
+ * reverse_rand - throws random nums
+ * using the name length
+ * @name: name to use
+ * Return: a random number
+ */
 int reverse_rand(char *name)
 {
 	int i = 0, k = 0;
 	int j = *name;
+
 	while (i < j)
 	{
 		k = rand();
@@ -57,17 +75,32 @@ int reverse_rand(char *name)
 	return (k);
 }
 
+/**
+ * main - Entry point
+ * @argc: argcount
+ * @argv: arg vector
+ * Return: 0
+ */
 int main(int argc, char **argv)
 {
 	(void) argc;
 	int k = 0;
 	char key[7];
 	char *user = argv[1];
-	char menu[] = "A-CHRdw871NS0E9B2TibgpnM"
-			"Vys5XzvtOgJcYLU+4mjW6fxq"
-			"ZeF3Qa1rPhdKIouk";
-
+	char str1[] = "A-CHRdw871NS0E9B2TibgpnM";
+	char str2[] = "Vys5XzvtOgJcYLU+4mjW6fxq";
+	char str3[] = "ZeF3Qa1rPhdKIouk";
 	char *nameptr = user;
+
+	char *menu = calloc(65, sizeof(char));
+
+	if (menu == NULL)
+		return (-1);
+
+	strcat(menu, str1);
+	strcat(menu, str2);
+	strcat(menu, str3);
+
 	while (*nameptr != '\0')
 	{
 		if (*nameptr > k)
@@ -84,6 +117,7 @@ int main(int argc, char **argv)
 	key[5] = menu[(reverse_rand(user) ^ 0xe5) & 0x3f];
 	key[6] = '\0';
 
-	printf("%s",key);
+	printf("%s\n", key);
+	free(menu);
 	return (0);
 }
