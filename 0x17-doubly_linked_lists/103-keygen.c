@@ -87,13 +87,12 @@ int main(int argc, char **argv)
 	int k = 0;
 	char key[7];
 	char *user = argv[1];
-	char str1[] = "A-CHRdw871NS0E9B2TibgpnM";
-	char str2[] = "Vys5XzvtOgJcYLU+4mjW6fxq";
+	char str1[] = "A-CHRDw87lNS0E9B2TibgpnM";
+	char str2[] = "Vys5XzvtOGJcYLU+4mjW6fxq";
 	char str3[] = "ZeF3Qa1rPhdKIouk";
 	char *nameptr = user;
 
 	char *menu = calloc(65, sizeof(char));
-
 	if (menu == NULL)
 		return (-1);
 
