@@ -93,6 +93,7 @@ int main(int argc, char **argv)
 	char *nameptr = user;
 
 	char *menu = calloc(65, sizeof(char));
+
 	if (menu == NULL)
 		return (-1);
 
