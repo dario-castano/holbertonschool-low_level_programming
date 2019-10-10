@@ -83,18 +83,20 @@ int reverse_rand(char *name)
  */
 int main(int argc, char **argv)
 {
-	(void) argc;
-	int k = 0;
-	char key[7];
-	char *user = argv[1];
+	int k;
+	char *user, *nameptr, *menu, *key;
 	char str1[] = "A-CHRDw87lNS0E9B2TibgpnM";
 	char str2[] = "Vys5XzvtOGJcYLU+4mjW6fxq";
 	char str3[] = "ZeF3Qa1rPhdKIouk";
-	char *nameptr = user;
 
-	char *menu = calloc(65, sizeof(char));
+	(void) argc;
+	k = 0;
+	user = argv[1];
+	nameptr = user;
+	menu = calloc(65, sizeof(char));
+	key = calloc(7, sizeof(char));
 
-	if (menu == NULL)
+	if (menu == NULL || key == NULL)
 		return (-1);
 
 	strcat(menu, str1);
@@ -119,5 +121,6 @@ int main(int argc, char **argv)
 
 	printf("%s\n", key);
 	free(menu);
+	free(key);
 	return (0);
 }
