@@ -1,7 +1,7 @@
 #include "hash_tables.h"
 
 /**
- * key_index function that gives you the index of a key using djb2.
+ * key_index - function that gives you the index of a key using djb2.
  * @key: data to be stored
  * @size: size of the hashmap
  * Return:  index at which the key/value pair should be stored in
