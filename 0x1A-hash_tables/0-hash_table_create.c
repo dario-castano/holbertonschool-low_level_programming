@@ -10,7 +10,6 @@ hash_table_t *hash_table_create(unsigned long int size)
 {
 	unsigned long int i;
 	hash_table_t *table;
-	hash_node_t *array[size];
 
 	if (size == 0)
 		return (NULL);
@@ -19,11 +18,13 @@ hash_table_t *hash_table_create(unsigned long int size)
 	if (table == NULL)
 		return (NULL);
 
-	for (i = 0; i < size; i++)
-		array[i] = NULL;
-
 	table->size = size;
-	table->array = array;
+	table->array = calloc(size, sizeof(hash_node_t *));
+	if (table->array == NULL)
+	{
+		free(table);
+		return (NULL);
+	}
 
 	return (table);
 }
