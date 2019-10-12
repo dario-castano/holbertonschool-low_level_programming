@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "hash_tables.h"
 
 /**
@@ -18,7 +19,7 @@ void hash_table_print(const hash_table_t *ht)
 	printf("{");
 	while (i < ht->size)
 	{
-		node = ht->array[index];
+		node = ht->array[i];
 		while (node != NULL)
 		{
 			printf("%s", str);
