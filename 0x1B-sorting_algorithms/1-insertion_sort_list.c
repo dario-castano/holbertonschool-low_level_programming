@@ -4,6 +4,7 @@
  * swap - swaps two contiguous doubly linked nodes
  * @left: left node
  * @right: right node
+ * @head: Head of the list
  * Return: void
  */
 listint_t *swap(listint_t *left, listint_t *right, listint_t *head)

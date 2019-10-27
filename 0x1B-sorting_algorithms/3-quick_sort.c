@@ -28,22 +28,22 @@ int partition(int *array, int size, int left, int right)
 	int pivot, part_index, j;
 
 	pivot = array[right];
-    part_index = left;
-  
-    for (j = left; j < right; j++) 
-    { 
-        if (array[j] <= pivot) 
-        { 
-            swap(&array[part_index], &array[j]);
+	part_index = left;
+
+	for (j = left; j < right; j++)
+	{
+		if (array[j] <= pivot)
+		{
+			swap(&array[part_index], &array[j]);
 			if (part_index != j)
 				print_array(array, size);
 			part_index++;
-        } 
-    } 
-    swap(&array[part_index], &array[right]);
+		}
+	}
+	swap(&array[part_index], &array[right]);
 	if (part_index != j)
 		print_array(array, size);
-    return (part_index); 
+	return (part_index);
 }
 
 /**
@@ -69,11 +69,11 @@ void lomuto_qs(int *array, int size, int left, int right)
 
 /**
  * quick_sort - Sort an array using QuickSort
- * @array: Array to be sorted 
+ * @array: Array to be sorted
  * @size: Size of the array
  * Return: void
  */
 void quick_sort(int *array, size_t size)
 {
-	lomuto_qs(array, size, 0, size-1);
+	lomuto_qs(array, size, 0, size - 1);
 }
