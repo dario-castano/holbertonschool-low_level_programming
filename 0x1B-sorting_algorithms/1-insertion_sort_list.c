@@ -40,12 +40,12 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *left, *right, *ptr;
 
-	if (list == NULL || *list == NULL )
+	if (list == NULL || *list == NULL)
 		return;
 
 	if ((*list)->next == NULL)
 		return;
-	
+
 	ptr = (*list)->next;
 	right = ptr;
 	left = ptr->prev;
@@ -62,5 +62,5 @@ void insertion_sort_list(listint_t **list)
 		ptr = ptr->next;
 		right = ptr;
 	}
-	
+
 }
