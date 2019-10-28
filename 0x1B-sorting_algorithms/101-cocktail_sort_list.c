@@ -1,5 +1,11 @@
 #include "sort.h"
 
+/**
+ * get_last_node - get the last node of a
+ * doubly linked list
+ * @head: Head of the list
+ * Return: pointer to last node
+ */
 listint_t *get_last_node(listint_t *head)
 {
 	listint_t *ptr = head;
@@ -41,6 +47,13 @@ listint_t *swap(listint_t *left, listint_t *right, listint_t *head)
 		return (head);
 }
 
+/**
+ * shake_forward - Runs a bubblesort forward
+ * @left: left node
+ * @right: right node
+ * @head: head of the list
+ * Return: result struct with status and new head
+ */
 result shake_forward(listint_t *left, listint_t *right, listint_t *head)
 {
 	listint_t *neighbor;
@@ -56,18 +69,25 @@ result shake_forward(listint_t *left, listint_t *right, listint_t *head)
 	while (left != right)
 	{
 		if (left->n > neighbor->n)
-			{
-				head = swap(left, neighbor, head);
-				print_list(head);
-				swapped.status = 1;
-				swapped.head = head;
-			}
-		left = neighbor;	
+		{
+			head = swap(left, neighbor, head);
+			print_list(head);
+			swapped.status = 1;
+			swapped.head = head;
+		}
+		left = neighbor;
 		neighbor = neighbor->next;
 	}
 	return (swapped);
 }
 
+/**
+ * shake_reverse - Runs a bubblesort backwards
+ * @left: left node
+ * @right: right node
+ * @head: head of the list
+ * Return: result struct with status and new head
+ */
 result shake_reverse(listint_t *left, listint_t *right, listint_t *head)
 {
 	listint_t *neighbor;
@@ -78,17 +98,17 @@ result shake_reverse(listint_t *left, listint_t *right, listint_t *head)
 
 	if (left == right)
 		return (swapped);
-	
+
 	neighbor = right->prev;
 	while (right != left)
 	{
 		if (right->n < neighbor->n)
-			{
-				head = swap(neighbor, right, head);
-				print_list(head);
-				swapped.status = 1;
-				swapped.head = head;
-			}
+		{
+			head = swap(neighbor, right, head);
+			print_list(head);
+			swapped.status = 1;
+			swapped.head = head;
+		}
 		right = neighbor;
 		neighbor = neighbor->prev;
 	}
@@ -109,14 +129,13 @@ void cocktail_sort_list(listint_t **list)
 
 	if (!list || !*list || !(*list)->next)
 		return;
-	
+
 	left = *list;
 	right = get_last_node(*list);
 	swapped.status = 0;
 	swapped.head = *list;
 
-	do
-	{
+	do {
 		swapped = shake_forward(left, right, swapped.head);
 		left = swapped.head;
 		right = get_last_node(left);
