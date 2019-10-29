@@ -22,9 +22,9 @@ void merge(int *array, int *left, int *right, size_t size)
 	printf("[right]: ");
 	print_array(right, rsize);
 
-    i = 0;
-    j = 0;
-    k = 0;
+	i = 0;
+	j = 0;
+	k = 0;
 
 	while (i < lsize && j < rsize)
 	{
@@ -53,8 +53,8 @@ void merge(int *array, int *left, int *right, size_t size)
 void merge_sort(int *array, size_t size)
 {
 	size_t middle;
-    size_t i;
-    int *pack;
+	size_t i;
+	int *pack;
 	int *left;
 	int *right;
 
@@ -62,9 +62,9 @@ void merge_sort(int *array, size_t size)
 		return;
 
 	middle = size / 2;
-    pack = malloc(sizeof(int) * size);
-    left = pack;
-    right = &pack[middle];
+	pack = malloc(sizeof(int) * size);
+	left = pack;
+	right = &pack[middle];
 
 	for (i = 0; i < middle; i++)
 		left[i] = array[i];
@@ -75,5 +75,5 @@ void merge_sort(int *array, size_t size)
 	merge_sort(left, middle);
 	merge_sort(right, size - middle);
 	merge(array, left, right, size);
-    free(pack);
+	free(pack);
 }
