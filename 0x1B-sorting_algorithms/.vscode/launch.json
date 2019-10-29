@@ -8,7 +8,7 @@
 			"name": "(gdb) Launch",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/cocktail",
+			"program": "${workspaceFolder}/merge",
 			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
