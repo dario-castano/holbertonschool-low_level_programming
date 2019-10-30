@@ -15,7 +15,7 @@ void reset(int *array, size_t size)
 }
 
 /**
- * get_digits_largest - get num of digits 
+ * get_digits_largest - get num of digits
  * @array: array to check
  * @size: size of the array
  * Return: number of digits
@@ -40,7 +40,7 @@ int get_digits_largest(int *array, size_t size)
 		number /= 10;
 		digits++;
 	}
-	
+
 	return (digits);
 }
 
@@ -59,7 +59,7 @@ int get_digit(int number, int digit)
 
 	for (i = 0; i < dig; i++)
 		den *= 10;
-	
+
 	return ((number / den) % 10);
 }
 
@@ -91,10 +91,10 @@ void radix_sort(int *array, size_t size)
 	for (i = 1; i <= max_iters; i++)
 	{
 		for (j = 0; j < size; j++)
-			{
-				value = get_digit(array[j], i);
-				buckets[value] += 1;
-			} 
+		{
+			value = get_digit(array[j], i);
+			buckets[value] += 1;
+		}
 		for (j = 1; j < 10; j++)
 			buckets[j] = buckets[j - 1] + buckets[j];
 		for (j = size - 1; j > 0; j--)
