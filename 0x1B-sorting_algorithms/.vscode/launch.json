@@ -8,7 +8,7 @@
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/radix",
+            "program": "${workspaceFolder}/quick",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

@@ -27,29 +27,29 @@ int partition(int *array, int size, int left, int right)
 {
 	int pivot, i, j;
 
-    pivot = array[right]; 
-    i = left - 1;
+	pivot = array[right]; 
+	i = left - 1;
 	j = right + 1; 
    
-    while (1) 
-    { 
-        do
-        { 
-            i++; 
-        } while (array[i] < pivot); 
+	while (1) 
+	{ 
+		do
+		{ 
+			i++; 
+		} while (array[i] < pivot); 
    
-        do
-        { 
-            j--; 
-        } while (array[j] > pivot); 
+		do
+		{ 
+			j--; 
+		} while (array[j] > pivot); 
    
 
-        if (i >= j) 
-            return j; 
+		if (i >= j) 
+			return j; 
    
-        swap(&array[i], &array[j]);
+		swap(&array[i], &array[j]);
 		print_array(array, size);
-    } 
+	} 
 }
 
 /**
@@ -60,15 +60,20 @@ int partition(int *array, int size, int left, int right)
  * @right: end index
  * Return: void
  */
-void hoare_qs(int *array, int size, int left, int right)
+void hoare_qs(int *array, int size, int left, int right, int part)
 {
-	int part;
+	int new_part;
 
 	if (left < right)
 	{
-		part = partition(array, size, left, right);
-		hoare_qs(array, size, left, part);
-		hoare_qs(array, size, part + 1, right);
+		new_part = partition(array, size, left, right);
+			if (part == new_part)
+				part = new_part - 1;
+			else
+				part = new_part;
+			
+		hoare_qs(array, size, left, part, new_part);
+		hoare_qs(array, size, part + 1, right, new_part);
 	}
 
 }
@@ -81,5 +86,7 @@ void hoare_qs(int *array, int size, int left, int right)
  */
 void quick_sort_hoare(int *array, size_t size)
 {
-	hoare_qs(array, size, 0, size - 1);
+	if (!array || size < 2)
+		return;
+	hoare_qs(array, size, 0, size - 1, size);
 }
