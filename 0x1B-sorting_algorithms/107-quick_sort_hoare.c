@@ -27,29 +27,26 @@ int partition(int *array, int size, int left, int right)
 {
 	int pivot, i, j;
 
-	pivot = array[right]; 
+	pivot = array[right];
 	i = left - 1;
-	j = right + 1; 
-   
-	while (1) 
-	{ 
-		do
-		{ 
-			i++; 
-		} while (array[i] < pivot); 
-   
-		do
-		{ 
-			j--; 
-		} while (array[j] > pivot); 
-   
+	j = right + 1;
 
-		if (i >= j) 
-			return j; 
-   
+	while (1)
+	{
+		do {
+			i++;
+		} while (array[i] < pivot);
+
+		do {
+			j--;
+		} while (array[j] > pivot);
+
+		if (i >= j)
+			return (j);
+
 		swap(&array[i], &array[j]);
 		print_array(array, size);
-	} 
+	}
 }
 
 /**
@@ -58,6 +55,7 @@ int partition(int *array, int size, int left, int right)
  * @size: size of the whole array
  * @left: start index
  * @right: end index
+ * @part: old partition
  * Return: void
  */
 void hoare_qs(int *array, int size, int left, int right, int part)
@@ -71,7 +69,7 @@ void hoare_qs(int *array, int size, int left, int right, int part)
 				part = new_part - 1;
 			else
 				part = new_part;
-			
+
 		hoare_qs(array, size, left, part, new_part);
 		hoare_qs(array, size, part + 1, right, new_part);
 	}
@@ -79,7 +77,7 @@ void hoare_qs(int *array, int size, int left, int right, int part)
 }
 
 /**
- * quick_sort - Sort an array using QuickSort
+ * quick_sort_hoare - Sort an array using QuickSort
  * @array: Array to be sorted
  * @size: Size of the array
  * Return: void
