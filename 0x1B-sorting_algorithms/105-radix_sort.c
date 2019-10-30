@@ -1,10 +1,24 @@
 #include "sort.h"
 
 /**
- * get_digits_largest - 
- * @array:
- * @size:
- * Return:
+ * reset - resets an array
+ * @array: array to reset
+ * @size: size of the array
+ * Return: void
+ */
+void reset(int *array, size_t size)
+{
+	size_t i;
+
+	for (i = 0; i < size; i++)
+		array[i] = 0;
+}
+
+/**
+ * get_digits_largest - get num of digits 
+ * @array: array to check
+ * @size: size of the array
+ * Return: number of digits
  */
 int get_digits_largest(int *array, size_t size)
 {
@@ -32,9 +46,9 @@ int get_digits_largest(int *array, size_t size)
 
 /**
  * get_digit - get a spefic digit of a number
- * @number:
- * @digit:
- * Return:
+ * @number: number to extract digit
+ * @digit: digit count
+ * Return: the digit
  */
 int get_digit(int number, int digit)
 {
@@ -52,9 +66,9 @@ int get_digit(int number, int digit)
 /**
  * radix_sort - sorts an array of integers
  * in ascending order using the Radix sort algorithm
- * @array:
- * @size:
- * Return:
+ * @array: Array to sort
+ * @size: size of the array
+ * Return: void
  */
 void radix_sort(int *array, size_t size)
 {
@@ -65,12 +79,13 @@ void radix_sort(int *array, size_t size)
 	if (array == NULL || size < 2)
 		return;
 
-	buckets = calloc(10, sizeof(int));
+	buckets = malloc(sizeof(int) * 10);
 	result = malloc(sizeof(int) * size);
 
 	if (!buckets || !result)
 		return;
 
+	reset(result, size);
 	max_iters = get_digits_largest(array, size);
 
 	for (i = 1; i <= max_iters; i++)
@@ -84,15 +99,17 @@ void radix_sort(int *array, size_t size)
 			buckets[j] = buckets[j - 1] + buckets[j];
 		for (j = size - 1; j > 0; j--)
 		{
-			value = buckets[get_digit(array[j], i)];
 			buckets[get_digit(array[j], i)] -= 1;
-			result[value] = array[value];
+			result[buckets[get_digit(array[j], i)]] = array[j];
 		}
+		buckets[get_digit(array[j], i)] -= 1;
+		result[buckets[get_digit(array[j], i)]] = array[j];
 		for (j = 0; j < size; j++)
 			array[j] = result[j];
 		print_array(array, size);
+		reset(buckets, 10);
+		reset(result, size);
 	}
-
 	free(buckets);
 	free(result);
 }
