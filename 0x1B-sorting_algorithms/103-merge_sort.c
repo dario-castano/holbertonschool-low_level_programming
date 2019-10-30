@@ -54,7 +54,7 @@ void merge_sort(int *array, size_t size)
 {
 	size_t middle;
 	size_t i;
-	int *pack;
+	int pack[1024];
 	int *left;
 	int *right;
 
@@ -62,7 +62,6 @@ void merge_sort(int *array, size_t size)
 		return;
 
 	middle = size / 2;
-	pack = malloc(sizeof(int) * size);
 	left = pack;
 	right = &pack[middle];
 
@@ -75,5 +74,5 @@ void merge_sort(int *array, size_t size)
 	merge_sort(left, middle);
 	merge_sort(right, size - middle);
 	merge(array, left, right, size);
-	free(pack);
 }
+
