@@ -8,10 +8,10 @@
  */
 int power(int base, int times)
 {
-    if (times == 0)
-        return (1);
-    else
-        return (base * power(base, times - 1));     
+	if (times == 0)
+		return (1);
+	else
+		return (base * power(base, times - 1));
 }
 
 /**
@@ -60,17 +60,17 @@ size_t binary_tree_size(const binary_tree_t *tree)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-    size_t height, size, perfect;
+	size_t height, size, perfect;
 
-    if (tree == NULL)
-        return (0);
+	if (tree == NULL)
+		return (0);
 
-    size = binary_tree_size(tree);
-    height = get_height(tree);
-    perfect = (size_t)(power(2, height) - 1);
+	size = binary_tree_size(tree);
+	height = get_height(tree);
+	perfect = (size_t)(power(2, height) - 1);
 
-    if (perfect == size)
-        return (1);
-    else
-        return (0);
+	if (perfect == size)
+		return (1);
+	else
+		return (0);
 }
